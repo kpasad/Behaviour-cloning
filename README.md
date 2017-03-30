@@ -1,7 +1,7 @@
 # Behaviour-cloning
 Self-Driving car-Behaviour Cloning
 This project is a part of Udacitys self driving car nano degree.
-The goal of the project is to train a deep learning network to learn and mimic the driving patterns of a human driver. Data is collected from a simulated driving on an animated track. Data is in form of images as seen by an on borad camera system consiting of a center, left and right camera.
+The goal of the project is to train a deep learning network to learn and mimic the driving patterns of a human driver. Data is collected from a simulated driving on an animated track. Data is collected form of images as seen by an on borad camera system consiting of a center, left and right camera. The steering angle along with other parameters is recorded. The images forms the feature set for the CNN and the sterring angle is reponse variable. During the test phase, the car must be able to drive autonomously, under the direction of the CNN, i.e. the CNN must provide accurate steering angles in response to the images seen by camera during test.
 
 Use the simulator to collect data of good driving behavior
 Build, a convolution neural network in Keras that predicts steering angles from images
