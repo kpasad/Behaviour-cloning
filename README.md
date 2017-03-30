@@ -1,14 +1,15 @@
-# Behaviour-cloning
-Self-Driving car-Behaviour Cloning
+# Self-Driving car-Behaviour Cloning
+## Introduction
 This project is a part of Udacitys self driving car nano degree.
 The goal of the project is to train a deep learning network to learn and mimic the driving patterns of a human driver. Data is collected from a simulated driving on an animated track. Data is collected form of images as seen by an on borad camera system consiting of a center, left and right camera. The steering angle along with other parameters is recorded. The images forms the feature set for the CNN and the sterring angle is reponse variable. During the test phase, the car must be able to drive autonomously, under the direction of the CNN, i.e. the CNN must provide accurate steering angles in response to the images seen by camera during test.
 
-Use the simulator to collect data of good driving behavior
-Build, a convolution neural network in Keras that predicts steering angles from images
-Train and validate the model with a training and validation set
-Test that the model successfully drives around track one without leaving the road
-Summarize the results with a written report
-Rubric Points
+## General discussion
+1. There was no hard metric to optimze to. 
+  * The requirement was for the car to succesfully navigate. 
+  * The target variable was the steering angle. How the MSE of the estimated steering angle would translate to a well behaved autonomous drive was not apparent.
+3. Absent a concrete metric to optimize for, no particular effort was expended towards selection of a network, nor for fine tuning the parameters. 
+  * Would a particular network hasve perfromed better than another? As with all things deep learning, this was not clear. 
+  * In hingsight, this problem would have benifitted from a Recursive Neural network due to time component of the images. More discussion later.
 
 ###Here I will consider the rubric points individually and describe how I addressed each point in my implementation.
 
