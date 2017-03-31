@@ -37,7 +37,14 @@ The goal of the project is to train a deep learning network to learn and mimic t
 | Fully connected		(Fc5)| Input: 10, output = 1        									|
 
 
-2. A dropout layer was added in front of every layer, with the dropout factor being a hyper parameter
+## Preprocessing
+1. Images were centered (zero mean)
+2. Original images sized 160x320 were cropped to 70x280
+Both preprocessing steps were implemented in keras
+
+## Data generation
+1. The images from simulator are stored on the hard drive. Loading all of them is not possible due to memory constraints. So a genertor function is utilised. See code for more details
+2. The images from left and right camera are angularly skewed. Any estimation of steering angle based on the side cameras should be offset. The offset varies according to road curvature in deterministic manner. While a trignometric relation ship could be derived, a fixed offset was used.
 
 ## General discussion
 1. There was no hard metric to optimze to.
