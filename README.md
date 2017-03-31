@@ -33,18 +33,29 @@ The goal of the project is to train a deep learning network to learn and mimic t
 3. The biggest impact was tighter cropping of the image. That along with adding dropouts and fine tuning the steering angle offset [explain] etc, reulted in  succesful mode.
 #Augmentations: 
 1. An approch based on generating a significant amount  data via augmentation failed. Augmentations included random brightness, shift along horizontal axis and...
-* This is mostly expliable by the fact, that aumentation of useless data does not improve the quality of data
-Thoughts:
+* This is mostly expliable by the fact, that aumentation of useless data does not improve the quality of data. Since determing the correct ratio of good data
+* I did not use any augmentation
+
+####1. An appropriate model architecture has been employed
+An Nvidia model as described in *link* was used 
+The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 25).
+
+The only parameter used was dropouts
+
+#Train test split:
+A 70-30 train test split was used, primarily to monitor the MSE
+
+
+Closing Thoughts:
 1.Treating the data as a time series sounds promising and will naturally address the small sterring angle problem.
-2. A suggested architecure.
-###Here I will consider the rubric points individually and describe how I addressed each point in my implementation.
+2. A suggested, sub-optimal  architecure
+* is to train a feed forward CNN 
+* tap output of an intermidiate layer as a encoded feature vector.
+* use the encoded features vectors as time training sequence of a Recucrsive NN.
+3. A optimal solution is to train a feedforward network with RNN as one of the layers.
+* The shallow feed forward layers will learn the discriminating features using that are relevant taking into account the time dependency.
 
-###Files Submitted & Code Quality
-
-####1. Submission includes all required files and can be used to run the simulator in autonomous mode
-
-My project includes the following files:
-
+Files in the project
 model.py containing the script to create and train the model
 drive.py for driving the car in autonomous mode
 model.h5 containing a trained convolution neural network
@@ -58,11 +69,6 @@ The model.py file contains the code for training and saving the convolution neur
 
 ###Model Architecture and Training Strategy
 
-####1. An appropriate model architecture has been employed
-Used the nvidia model with following parameters
-The only parameter used was dropouts
-The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 10-16). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
-The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 25).
 
 ####4. Appropriate training data
 Track contains four turns.
@@ -106,37 +112,4 @@ The final step was to run the simulator to see how well the car was driving arou
 
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
 
-####2. Final Model Architecture
-
-The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes ...
-
-Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
-
-alt text
-
-####3. Creation of the Training Set & Training Process
-
-To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
-
-alt text
-
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
-
-alt text alt text alt text
-
-Then I repeated this process on track two in order to get more data points.
-
-To augment the data sat, I also flipped images and angles thinking that this would ... For example, here is an image that has then been flipped:
-
-alt text alt text
-
-Etc ....
-
-After the collection process, I had X number of data points. I then preprocessed this data by ...
-
-I finally randomly shuffled the data set and put Y% of the data into a validation set.
-
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by ... I used an adam optimizer so that manually training the learning rate wasn't necessary.
-Contact GitHub API Training Shop Blog About
-© 2017 GitHub, Inc. Terms Privacy Security Status Help
 
