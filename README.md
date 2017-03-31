@@ -3,6 +3,12 @@
 This project is a part of Udacitys self driving car nano degree.
 The goal of the project is to train a deep learning network to learn and mimic the driving patterns of a human driver. Data is collected from a simulated driving on an animated track. Data is collected form of images as seen by an on borad camera system consiting of a center, left and right camera. The steering angle along with other parameters is recorded. The images forms the feature set for the CNN and the sterring angle is reponse variable. During the test phase, the car must be able to drive autonomously, under the direction of the CNN, i.e. the CNN must provide accurate steering angles in response to the images seen by camera during test.
 
+## Network Architure
+1. The network architecture [here] (https://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf) was replicated
+|Layer | Description|
+| Input layer| 3x24|
+2. A dropout layer was added in front of every layer, with the dropout factor being a hyper parameter
+
 ## General discussion
 1. There was no hard metric to optimze to.
   * The requirement was for the car to succesfully navigate. 
