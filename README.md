@@ -11,17 +11,31 @@ The goal of the project is to train a deep learning network to learn and mimic t
 
 | Layer         		|     Description	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| Input         		| 32x32x1 Grayscale image   							| 
-| Convolution (Conv1)      	|5x5 field, 1x1 stride, No padding, outputs 28x28x32 	|
+| Input         		| 60,280,3 RGB color image   							| 
+| Convolution (Conv1)      	|5x5 field, 2x2 stride, No padding, outputs ?x?x24 	|
+| Maxpool| 2x2 Stride |
+|Dropout | 0.8|
 | RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 14x14x32 				|
-| Convolution (Conv2)5x5	    | 5x5 field,1x1 stride, No padding, outputs 10x10x64      									|
+| Convolution (Conv2)	    | 5x5 field,2x2 stride, No padding, outputs ?x?x36      									|
+| Maxpool| 2x2 Stride |
+|Dropout | 0.8|
 | RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 5x5x64 				|
-| Fully connected		(Fc0)| Input: 1600, output = 120        									|
-| Fully connected		(Fc1)| Input: 120, output = 84        									|
-| Fully connected		(Fc2)| Input: 84, output = 43        									|
-| Softmax				|         									|
+| Convolution (Conv3)	    | 3x3 field,2x2 stride, No padding, outputs ?x?x48      									|
+| Maxpool| 2x2 Stride |
+|Dropout | 0.8|
+| RELU					|												|
+| Convolution (Conv4)	    | 3x3 field,2x2 stride, No padding, outputs ?x?x64      									|
+|Dropout | 0.8|
+| RELU					|												|
+| Convolution (Conv4)	    | 3x3 field,2x2 stride, No padding, outputs ?x?x64      									|
+|Dropout | 0.8|
+| RELU					|												|
+| Fully connected		(Fc1)| Input: ?, output = 1164        									|
+| Fully connected		(Fc2)| Input: 1164, output = 100        									|
+| Fully connected		(Fc3)| Input: 100, output = 50        									|
+| Fully connected		(Fc4)| Input: 50, output = 10        									|
+| Fully connected		(Fc5)| Input: 10, output = 1        									|
+
 
 2. A dropout layer was added in front of every layer, with the dropout factor being a hyper parameter
 
