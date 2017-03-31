@@ -7,6 +7,22 @@ The goal of the project is to train a deep learning network to learn and mimic t
 1. The network architecture [here] (https://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf) was replicated
 |Layer | Description|
 | Input layer| 3x24|
+
+
+| Layer         		|     Description	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| Input         		| 32x32x1 Grayscale image   							| 
+| Convolution (Conv1)      	|5x5 field, 1x1 stride, No padding, outputs 28x28x32 	|
+| RELU					|												|
+| Max pooling	      	| 2x2 stride,  outputs 14x14x32 				|
+| Convolution (Conv2)5x5	    | 5x5 field,1x1 stride, No padding, outputs 10x10x64      									|
+| RELU					|												|
+| Max pooling	      	| 2x2 stride,  outputs 5x5x64 				|
+| Fully connected		(Fc0)| Input: 1600, output = 120        									|
+| Fully connected		(Fc1)| Input: 120, output = 84        									|
+| Fully connected		(Fc2)| Input: 84, output = 43        									|
+| Softmax				|         									|
+
 2. A dropout layer was added in front of every layer, with the dropout factor being a hyper parameter
 
 ## General discussion
