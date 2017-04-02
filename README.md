@@ -58,8 +58,9 @@ Both preprocessing steps were implemented in keras
 |:--:|:--:|:--:|:--:|:--:|
 |Fwd|-0.035|-0.048|0.01489|0.02628|
 |Rev|-0.-2791|0.05390|0.0118|0.0229|
-* Downsampling the data resulted in the sterring angle responding to road curvature. However it could not navigate the first turn.
-2. To correct for it, additional data was added to train the car to navigate the turns.  
+
+2. Downsampling the data resulted in the sterring angle responding to road curvature. However it could not navigate the first turn.
+3. To correct for it, additional data was added to train the car to navigate the turns.  
 Figure below shows the CDF of each component drive ![CDF of steering angles for a variety of drives](/images/cdf_drives.png).
 * It also intresting to see how the CDF of drives changes as the downsampling factor is changed.![CDF of individual drives with diffrent downsampling ](/images/cdf_drives_ds.png)
 
@@ -72,9 +73,9 @@ Figure below shows the CDF of each component drive ![CDF of steering angles for 
  * It can be concluded that the network depends on the few impactful training samples. This corroborates the observation that adding more drives does not dramatically change the test behaviour, as most data corresponds to a small streeting angle
  * To test the thesis, the model was trained on two identical data, but each downsampled by a diffrent threhsold of 0.1 and 0.2. The later data set caused the car to over react. Clearly, it did not learn to drive straigh. 
  * No correlation was found between the MSE and ability to drive. This again can be explained by the fact that plenty of straing driving data will lead to a small MSE but not lead toa successful drive.
-3. Overall, this was an excercise in selecting the right training data
+4. Overall, this was an excercise in selecting the right training data
 
-4. The biggest impact was tighter cropping of the image.
+5. The biggest impact was tighter cropping of the image. After some experimentation, a set of parameters waas obtained that resulted in the car driving itself succesfully.
 
 #Augmentations: 
 1.Augmentations included random brightness, shift along horizontal axis. 
