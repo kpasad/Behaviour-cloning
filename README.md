@@ -94,7 +94,8 @@ Closing Thoughts:
 * The shallow feed forward layers will learn the discriminating features using that are relevant taking into account the time dependency.
 
 Files in the project
-model.py containing the script to create and train the model
+model.py       :containing the script to create and train the model
+join_tracks.py : Script to selective combine diffrent tracks.
 drive.py for driving the car in autonomous mode
 model.h5 containing a trained convolution neural network
 writeup_report.md or writeup_report.pdf summarizing the results
@@ -105,7 +106,6 @@ python drive.py model.h5
 
 The model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
 
-###Model Architecture and Training Strategy
 
 
 ####4. Appropriate training data
@@ -118,36 +118,6 @@ Note that the MSE should be greater than 0.05- what does it mean?
 Tried fine tuning steering angle  and downsampling factor
 Decide to crop tigher. This was the key. Within a couple of attempts of fine tuning others, the car performed a complete lap.
 Added additional turns. Did not work.
-
-Augmented data:
-Did not augment the original image.
-Tried to have more robust solution-independent of the turns by augmentation
-Added following aumentation, see code
-Struck steering again. Could not resolve, gave up
-Unfortuntely, the solution that worked was by trail and error.
-
-
-Quatifying turn.
-Overall, data for 2 compelete laps and multiple short turns was collecteed. 
-For details about how I created the training data, see the next section.
-Perform simulation
-Join data framess
-###Model Architecture and Training Strategy
-
-####1. Solution Design Approach
-
-The overall strategy for deriving a model architecture was to ...
-
-My first step was to use a convolution neural network model similar to the ... I thought this model might be appropriate because ...
-
-In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting.
-
-To combat the overfitting, I modified the model so that ...
-
-Then I ...
-
-The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track... to improve the driving behavior in these cases, I ....
-
-At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
+=
 
 
