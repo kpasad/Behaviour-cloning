@@ -77,12 +77,19 @@ Figure below shows the CDF of each component drive ![CDF of steering angles for 
 
 5. The biggest impact was tighter cropping of the image. After some experimentation, a set of parameters waas obtained that resulted in the car driving itself succesfully.
 
+#Network training
+1. No effort was expended in trying out diffrent architecures. During the initial phases, there was no a apparent relation between MSE of the estimates and the vehicles ability to drive autonomously.
+2. It was clear though, that the test MSE needed to be less than 0.03 for the car to navigate correctly. The variance of the steering angle is ~0.025. A mean square greater that 0.025 would mean that predictions have more randomness then the data. However, this is arguable: the vraince may be biased by a set of data for which the model make large errors, and the data occurs much more frequently- in essense estimation error is not uniform accross the data, and the data distribution is unbiased. 
+3. Training was limited to ~4 epochs. Within this duration validation error reached a steady state.
+4. The training data that worked consisted of one forward, one reverse, and one multiple passes of the shrpest curves
+5. Training data that failed were when data for one specific curve occured in a significant number.
+
 #Augmentations: 
 1.Augmentations included random brightness, shift along horizontal axis. 
 An approch based on generating a significant amount  data via augmentation failed.
 * This is mostly expliable by the fact, that aumentation of useless data does not improve the quality of data. Since determing the correct ratio of good data
 * I did not use any augmentation
-
+* Augmentation allows a tighter control of statistics of training data.With proper augmentation, a much smaller data set could be used.
 
 Closing Thoughts:
 1.Treating the data as a time series sounds promising and will naturally address the small sterring angle problem.
@@ -96,28 +103,6 @@ Closing Thoughts:
 Files in the project
 model.py       :containing the script to create and train the model
 join_tracks.py : Script to selective combine diffrent tracks.
-drive.py for driving the car in autonomous mode
+drive.py : Created and provided by udacity for driving the car in autonomous mode
 model.h5 containing a trained convolution neural network
 writeup_report.md or writeup_report.pdf summarizing the results
-####2. Submission includes functional code Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing
-
-python drive.py model.h5
-####3. Submission code is usable and readable
-
-The model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works.
-
-
-
-####4. Appropriate training data
-Track contains four turns.
-Turn 1: before bridge, gentle
-Turn 2: Immidiately after bridge. Sharp.
-Turn 3: Immidiately past turn 2. Really sharp
-Turn 4: Closer to the end of the lap.
-Note that the MSE should be greater than 0.05- what does it mean?
-Tried fine tuning steering angle  and downsampling factor
-Decide to crop tigher. This was the key. Within a couple of attempts of fine tuning others, the car performed a complete lap.
-Added additional turns. Did not work.
-=
-
-
