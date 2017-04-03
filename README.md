@@ -100,10 +100,15 @@ Closing Thoughts:
 3. A optimal solution is to train a feedforward network with RNN as one of the layers.
 * The shallow feed forward layers will learn the discriminating features using that are relevant taking into account the time dependency.
 
-Files in the project
-train_drive_data.py:script to create and train the model based on data collected from simulated driving only.
-train_aug_data.py  :script to create and train the model based on data collected from simulated driving as well as augmented data.
-join_tracks.py : Script to selective combine data from diffrent drives.
-drive.py : Created and provided by udacity for driving the car in autonomous mode
-model.h5 containing a trained convolution neural network
-writeup_report.md or writeup_report.pdf summarizing the results
+Files in the project:
+* train_drive_data.py:script to create and train the model based on data collected from simulated driving only.
+* train_aug_data.py  :script to create and train the model based on data collected from simulated driving as well as augmented data.
+* join_tracks.py : Script to selective combine data from diffrent drives.
+* drive.py : Created and provided by udacity for driving the car in autonomous mode
+* model.h5:  containing a trained convolution neural network. It is downloadable from:
+
+[Trained Keras Model](https://www.dropbox.com/s/kekjrl564kf08x9/model.h5?dl=0)
+* run1.mp4: Video of car driving autonomously, It is downloadable from:
+
+[Video of autonomous driving](https://www.dropbox.com/s/21zhgxe7l2xtgv4/run1.mp4?dl=0)
+* writeup_report.md or writeup_report.pdf summarizing the results
