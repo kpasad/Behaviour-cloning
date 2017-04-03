@@ -101,8 +101,9 @@ Closing Thoughts:
 * The shallow feed forward layers will learn the discriminating features using that are relevant taking into account the time dependency.
 
 Files in the project
-model.py       :containing the script to create and train the model
-join_tracks.py : Script to selective combine diffrent tracks.
+train_drive_data.py:script to create and train the model based on data collected from simulated driving only.
+train_aug_data.py  :script to create and train the model based on data collected from simulated driving as well as augmented data.
+join_tracks.py : Script to selective combine data from diffrent drives.
 drive.py : Created and provided by udacity for driving the car in autonomous mode
 model.h5 containing a trained convolution neural network
 writeup_report.md or writeup_report.pdf summarizing the results
