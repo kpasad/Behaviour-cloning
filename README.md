@@ -77,28 +77,28 @@ Figure below shows the CDF of each component drive ![CDF of steering angles for 
 
 5. The biggest impact was tighter cropping of the image. After some experimentation, a set of parameters waas obtained that resulted in the car driving itself succesfully.
 
-#Network training
+# Network training
 1. No effort was expended in trying out diffrent architecures. During the initial phases, there was no a apparent relation between MSE of the estimates and the vehicles ability to drive autonomously.
 2. It was clear though, that the test MSE needed to be less than 0.03 for the car to navigate correctly. The variance of the steering angle is ~0.025. A mean square greater that 0.025 would mean that predictions have more randomness then the data. However, this is arguable: the vraince may be biased by a set of data for which the model make large errors, and the data occurs much more frequently- in essense estimation error is not uniform accross the data, and the data distribution is unbiased. 
 3. Training was limited to ~4 epochs. Within this duration validation error reached a steady state.
 4. The training data that worked consisted of one forward, one reverse, and one multiple passes of the shrpest curves
 5. Training data that failed were when data for one specific curve occured in a significant number.
 
-#Augmentations: 
+# Augmentations: 
 1.Augmentations included random brightness, shift along horizontal axis. 
 An approch based on generating a significant amount  data via augmentation failed.
 * This is mostly expliable by the fact, that aumentation of useless data does not improve the quality of data. Since determing the correct ratio of good data
 * I did not use any augmentation
 * Augmentation allows a tighter control of statistics of training data.With proper augmentation, a much smaller data set could be used.
 
-Closing Thoughts:
+# Closing Thoughts:
 1.Treating the data as a time series sounds promising and will naturally address the small sterring angle problem.
 2. A suggested, sub-optimal  architecure
 * is to train a feed forward CNN 
 * tap output of an intermidiate layer as a encoded feature vector.
 * use the encoded features vectors as time training sequence of a Recucrsive NN.
 3. A optimal solution is to train a feedforward network with RNN as one of the layers.
-* The shallow feed forward layers will learn the discriminating features using that are relevant taking into account the time dependency.
+* The shallow feed forward layers will learn the discriminating features using  taking into account the time dependency.
 
 Files in the project:
 * train_drive_data.py:script to create and train the model based on data collected from simulated driving only.
