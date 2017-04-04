@@ -86,13 +86,13 @@ An approch based on generating a significant amount  data via augmentation faile
 * Augmentation allows a tighter control of statistics of training data.With proper augmentation, a much smaller data set could be used.
 
 ## Closing Thoughts:
-1.Treating the data as a time series sounds promising and will naturally address the small sterring angle problem.
-2. A suggested, sub-optimal  architecure
-* is to train a feed forward CNN 
+1. Treating the data as a time series sounds promising and will naturally address the small sterring angle problem.
+2. A suggested, sub-optimal  architecure is:
+* train a feed forward CNN 
 * tap output of an intermidiate layer as a encoded feature vector.
 * use the encoded features vectors as time training sequence of a Recucrsive NN.
 3. A optimal solution is to train a feedforward network with RNN as one of the layers.
-* The shallow feed forward layers will learn the discriminating features using  taking into account the time dependency.
+* The shallow feed forward layers will learn the discriminating features *after* accounting for the time dependency promulgated by the deeper recursive layer.
 
 ## Files in the project:
 * train_drive_data.py:script to create and train the model based on data collected from simulated driving only.
