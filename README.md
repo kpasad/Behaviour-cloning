@@ -10,26 +10,23 @@ The goal of the project is to train a deep learning network to learn and mimic t
 
 | Layer         		|     Description	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| Input         		| 60,280,3 RGB color image   							| 
-| Convolution (Conv1)      	|5x5 field, 2x2 stride, No padding, outputs ?x?x24 	|
-| Maxpool| 2x2 Stride |
+| Input         		| 90,320,3 RGB color image   							| 
+| Convolution (Conv1)      	|5x5 field, 2x2 stride, No padding, outputs 43x158x24 	|
 |Dropout | 0.8|
 | RELU					|												|
-| Convolution (Conv2)	    | 5x5 field,2x2 stride, No padding, outputs ?x?x36      									|
-| Maxpool| 2x2 Stride |
+| Convolution (Conv2)	    | 5x5 field,2x2 stride, No padding, outputs 20x77x36      									|
 |Dropout | 0.8|
 | RELU					|												|
-| Convolution (Conv3)	    | 3x3 field,2x2 stride, No padding, outputs ?x?x48      									|
-| Maxpool| 2x2 Stride |
+| Convolution (Conv3)	    | 3x3 field,2x2 stride, No padding, outputs 9x38x48      									|
 |Dropout | 0.8|
 | RELU					|												|
-| Convolution (Conv4)	    | 3x3 field,2x2 stride, No padding, outputs ?x?x64      									|
+| Convolution (Conv4)	    | 3x3 field,2x2 stride, No padding, outputs 7x36x64      									|
 |Dropout | 0.8|
 | RELU					|												|
-| Convolution (Conv4)	    | 3x3 field,2x2 stride, No padding, outputs ?x?x64      									|
+| Convolution (Conv4)	    | 3x3 field,2x2 stride, No padding, outputs 5x34x64      									|
 |Dropout | 0.8|
 | RELU					|												|
-| Fully connected		(Fc1)| Input: ?, output = 1164        									|
+| Fully connected		(Fc1)| Input: 10880, output = 1164        									|
 | Fully connected		(Fc2)| Input: 1164, output = 100        									|
 | Fully connected		(Fc3)| Input: 100, output = 50        									|
 | Fully connected		(Fc4)| Input: 50, output = 10        									|
@@ -38,8 +35,8 @@ The goal of the project is to train a deep learning network to learn and mimic t
 
 ## Preprocessing
 1. Images were centered (zero mean)
-2. Original images sized 160x320 were cropped to 70x280
-Both preprocessing steps were implemented in keras
+2. Original images sized 160x320 were cropped to 90x320
+Both preprocessing steps were implemented in keras using Lamda layer followed by cropping layer
 
 ## Data generation
 1. The images from simulator are stored on the hard drive. Loading all of them is not possible due to memory constraints. So a genertor function is utilised. See code for more details
